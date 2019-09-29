@@ -24,7 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.test.test.model.Product;
 import com.test.test.service.ProductService;
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class TestController {
 	
 	@Autowired
@@ -68,7 +68,7 @@ public class TestController {
 	@PostMapping("/product/file") 
 	public String handleFileUpload(@RequestParam("file") MultipartFile file) throws IOException{
         //String path="C:\\Users\\Abinet\\Desktop\\Spring\\test\\src\\main\\resources\\static\\";
-        String path="/images/";  
+        String path="/tmp/";  
 		File fileToSave = new File(path + file.getOriginalFilename());
             //copy file content from received file to new local file
             file.transferTo(fileToSave);        
